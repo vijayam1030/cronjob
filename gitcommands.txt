@@ -10,3 +10,10 @@ else
     echo "wget failed with error: $wget_output"
     exit 1
 fi
+
+
+
+chmod +x fetch_script.sh
+
+
+*/10 * * * * /path/to/fetch_script.sh
