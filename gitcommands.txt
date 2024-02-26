@@ -45,6 +45,10 @@ curl -s "http://localhost:8983/solr/<core_name>/dataimport?command=status" | gre
     }
 }
 
+
+
+curl -s "http://api.example.com/endpoint" | awk -F'":"' '/Delta Dump started/{gsub(/"/, "", $2); print $2}'
+
 chmod +x fetch_script.sh
 
 
