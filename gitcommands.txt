@@ -14,7 +14,36 @@ fi
 curl -sSL [API_ENDPOINT] | awk -v RS='}' -F '[]:,""' '{print $4}'
 
 curl -s "http://localhost:8983/solr/<core_name>/dataimport?command=status" | grep -oP '<date name="last_index_time">\K[^<]+' | sed 's/T/ /; s/Z//'
-
+{
+    "responseHeader": {
+        "status": 0,
+        "QTime": 0
+    },
+    "initArgs": [
+        "defaults",
+        [
+            "config",
+            "sl-data-config.xml"
+        ],
+        "invariants",
+        []
+    ],
+    "command": "status",
+    "status": "busy",
+    "importResponse": "A command is still running...",
+    "statusMessages": {
+        "Time Elapsed": "0:0:7.98",
+        "Total Requests made to DataSource": "92",
+        "Total Rows Fetched": "62",
+        "Total Documents Processed": "9",
+        "Total Documents Skipped": "0",
+        "Delta Dump started": "2024-02-26 18:56:00",
+        "Identifying Delta": "2024-02-26 18:56:00",
+        "Deltas Obtained": "2024-02-26 18:56:00",
+        "Building documents": "2024-02-26 18:56:00",
+        "Total Changed Documents": "14"
+    }
+}
 
 chmod +x fetch_script.sh
 
