@@ -11,6 +11,8 @@ else
     exit 1
 fi
 
+curl -sSL [API_ENDPOINT] | awk -v RS='}' -F '[]:,""' '{print $4}'
+
 
 
 chmod +x fetch_script.sh
