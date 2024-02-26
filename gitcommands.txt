@@ -13,6 +13,7 @@ fi
 
 curl -sSL [API_ENDPOINT] | awk -v RS='}' -F '[]:,""' '{print $4}'
 
+curl -s "http://localhost:8983/solr/<core_name>/dataimport?command=status" | grep -oP '<date name="last_index_time">\K[^<]+' | sed 's/T/ /; s/Z//'
 
 
 chmod +x fetch_script.sh
